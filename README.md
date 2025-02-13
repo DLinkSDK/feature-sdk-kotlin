@@ -17,7 +17,7 @@ Note: The Maven repository address needs to be configured in both 'buildscript' 
 
 (2) If you are using Gradle for integration, add the following code to your project's build.gradle:
 ```kotlin
-implementation 'dev.deeplink:feature:3.0.4'
+implementation 'dev.deeplink:feature:3.0.6'
 ```
 
 Step 3: Configure AndroidManifest
@@ -48,15 +48,13 @@ class CustomApplication : Application() {
             val appId = "Appid from https://console.dlink.cloud"
             //[Required] Device ID in the developer's business system
             val deviceId = "ABCD-EFGH-IJKL-MNOP"
-            //[Required] The server address for collecting device information
-            val serverUrl = "https://xxx.xxx"
 
             //Please call the SDK initialization method in the thread.
             //Time-consuming operations will be performed during initialization.
             Thread {
                 FeatureSdk.launch(
                     this,
-                    FeatureConfig(appId = appId, deviceId = deviceId, apiBaseUrl = serverUrl)
+                    FeatureConfig(appId = appId, deviceId = deviceId)
                 )
             }.start()
         }
