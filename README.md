@@ -1,4 +1,4 @@
-# client-sdk-kotlin
+# feature-sdk-kotlin
 
 Step 1: Get the Appid
 
