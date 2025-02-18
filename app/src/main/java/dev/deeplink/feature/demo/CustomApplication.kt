@@ -4,7 +4,6 @@ import android.app.Application
 import dev.deeplink.feature.FeatureConfig
 import dev.deeplink.feature.FeatureSdk
 
-
 class CustomApplication : Application() {
 
     override fun onCreate() {
@@ -14,15 +13,13 @@ class CustomApplication : Application() {
             val appId = "Appid from https://console.dlink.cloud"
             //[Required] Device ID in the developer's business system
             val deviceId = "ABCD-EFGH-IJKL-MNOP"
-            //[Required] The server address for collecting device information
-            val serverUrl = "https://xxx.xxx"
 
             //Please call the SDK initialization method in the thread.
             //Time-consuming operations will be performed during initialization.
             Thread {
                 FeatureSdk.launch(
                     this,
-                    FeatureConfig(appId = appId, deviceId = deviceId, apiBaseUrl = serverUrl)
+                    FeatureConfig(appId = appId, deviceId = deviceId)
                 )
             }.start()
         }
