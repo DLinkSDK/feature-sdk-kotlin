@@ -49,12 +49,16 @@ class CustomApplication : Application() {
             //[Required] Device ID in the developer's business system
             val deviceId = "ABCD-EFGH-IJKL-MNOP"
 
+            //[Optional] If the developer wants to obtain feature data by themselves,
+            // they can deploy a server to receive data and pass the server address to the SDK.
+            val serverUrl = "https://xxx.xxx"
+
             //Please call the SDK initialization method in the thread.
             //Time-consuming operations will be performed during initialization.
             Thread {
                 FeatureSdk.launch(
                     this,
-                    FeatureConfig(appId = appId, deviceId = deviceId)
+                    FeatureConfig(appId = appId, deviceId = deviceId, apiBaseUrl = serverUrl)
                 )
             }.start()
         }
